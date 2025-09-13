@@ -72,7 +72,7 @@
           <!-- Produto: Ouro Branco -->
           <article class="product" data-name="Ouro Branco">
             <div class="thumb">
-              <img src="bolo-no-pote-sabor-ouro-branco-1024x766.jpg" alt="Bolo de pote sabor Ouro Branco">
+              <img src="receitasbolonopote_106269808_1178545305894504_5797672473499745533_n.jpg" alt="Bolo de pote sabor Ouro Branco">
             </div>
             <div class="info">
               <h3>Ouro Branco</h3>
@@ -104,7 +104,7 @@
           <!-- Produto: Morango -->
           <article class="product" data-name="Morango">
             <div class="thumb">
-              <img src="Bolo-de-Pote-de-Chocolate-com-Morango-768x806.jpg" alt="Bolo de pote sabor Morango">
+              <img src="d30c009990f30d108becb8acd88773fa.jpg" alt="Bolo de pote sabor Morango">
               <img src=".jpg" alt="Bolo de pote sabor Morango">
             </div>
             <div class="info">
@@ -116,16 +116,16 @@
                 <label>
                   Tamanho:
                   <select class="size">
-                    <option value="12">P - R$12</option>
-                    <option value="15">M - R$15</option>
-                    <option value="18">G - R$18</option>
+                    <option value="12"> - R$12</option>
+                    <option value="15"> - R$15</option>
+                    <option value="18"> - R$18</option>
                   </select>
                 </label>
 
                 <label>
                   Quantidade:
                   <select class="qty">
-                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
                   </select>
                 </label>
 
@@ -143,7 +143,7 @@
 
         <div class="field">
           <label for="customer-name">Nome</RAISSA>
-          <input id="customer-name" type="text" placeholder="Seu nome">
+          <input id="customer-name" type="text" placeholder="RAISSA">
         </div>
 
         <div class="field">
@@ -161,7 +161,7 @@
         </div>
 
         <div class="field" id="pix-row">
-          <label for="pix-key">Chave PIX</RAISSA>
+          <label for="pix-key">Chave PIX</5541996383476>
           <input id="pix-key" type="text" placeholder="CPF ou e-mail / chave PIX">
         </div>
 
@@ -175,11 +175,11 @@
           <img src="WhatsApp Image 2025-09-12 at 23.25.281.jpg" alt="Dono 1">
           <img src="WhatsApp Image 2025-09-12 at 23.25.28" alt="Dono 1">
           <img src="WhatsApp Image 2025-09-12 at 23.25.28.jpg" alt="Dono 1">
-          <figcaption>Maria</figcaption>
+          <figcaption>RAISSA</figcaption>
         </figure>
 
         <figure class="owner">
-          <img src="images/owner2.jpg" alt="Dono 2">
+          <img src="WhatsApp Image 2025-09-12 at 23.25.28.jpg" alt="Dono 2">
           <figcaption>MATEUS</figcaption>
         </figure>
       </div>
@@ -215,11 +215,127 @@
 
 
 
-<div class="lights">
-  <div class="light"></div>
-  <div class="light"></div>
-  <div class="light"></div>
-  <div class="light"></div>
-  <div class="light"></div>
-  <div class="light"></div>
-</div>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LED Pisca-pisca</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      z-index: 1;
+    }
+
+    /* LED base */
+    .led {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 4px;
+      background: red;
+      box-shadow: 0 0 8px red;
+      animation: blink 1s infinite alternate;
+    }
+
+    @keyframes blink {
+      from { opacity: 0.2; }
+      to   { opacity: 1; }
+    }
+
+    /* Containers */
+    .led-strip {
+      position: absolute;
+      display: flex;
+    }
+
+    .top, .bottom {
+      left: 0;
+      right: 0;
+      justify-content: center;
+    }
+
+    .top { top: 5px; }
+    .bottom { bottom: 5px; }
+
+    .left, .right {
+      top: 0;
+      bottom: 0;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .left { left: 5px; }
+    .right { right: 5px; }
+  </style>
+</head>
+<body>
+  <h1></h1>
+
+  <!-- Faixas de LEDs -->
+  <div class="led-strip top" id="led-top"></div>
+  <div class="led-strip bottom" id="led-bottom"></div>
+  <div class="led-strip left" id="led-left"></div>
+  <div class="led-strip right" id="led-right"></div>
+
+  <script>
+    const cores = ["red", "yellow", "lime", "cyan", "magenta", "orange"];
+    const qtd = 20;
+
+    function criarLeds(container, orientacao) {
+      for (let i = 0; i < qtd; i++) {
+        const led = document.createElement("div");
+        led.classList.add("led");
+        const cor = cores[Math.floor(Math.random() * cores.length)];
+        led.style.background = cor;
+        led.style.boxShadow = `0 0 8px ${cor}`;
+        led.style.animationDuration = (0.5 + Math.random() * 1.5) + "s";
+        container.appendChild(led);
+      }
+    }
+
+    criarLeds(document.getElementById("led-top"));
+    criarLeds(document.getElementById("led-bottom"));
+    criarLeds(document.getElementById("led-left"));
+    criarLeds(document.getElementById("led-right"));
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LED Pisca-pisca</title>
+  <link rel="stylesheet" href="bolo.css">
+</head>
+
+
+
+
+
+<script src="bolo.script"></script>
+

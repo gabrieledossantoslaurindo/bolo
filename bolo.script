@@ -128,6 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
 // Pisca-pisca dinâmico (troca cor aleatória)
 const lights = document.querySelectorAll(".light");
 const colors = ["red", "yellow", "green", "blue", "pink", "orange", "cyan", "purple"];
@@ -139,3 +142,53 @@ setInterval(() => {
     light.style.boxShadow = `0 0 8px ${color}`;
   });
 }, 1500);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Cores possíveis dos LEDs
+const cores = ["red", "yellow", "lime", "cyan", "magenta", "orange"];
+// Quantidade de LEDs por faixa
+const qtd = 20;
+
+// Função para criar LEDs dentro de um container
+function criarLeds(container) {
+  for (let i = 0; i < qtd; i++) {
+    const led = document.createElement("div");
+    led.classList.add("led");
+
+    // Sorteia uma cor aleatória
+    const cor = cores[Math.floor(Math.random() * cores.length)];
+    led.style.background = cor;
+    led.style.boxShadow = `0 0 8px ${cor}`;
+
+    // Duração da animação aleatória (para piscar em tempos diferentes)
+    led.style.animationDuration = (0.5 + Math.random() * 1.5) + "s";
+
+    container.appendChild(led);
+  }
+}
+
+// Cria LEDs nas 4 bordas
+criarLeds(document.getElementById("led-top"));
+criarLeds(document.getElementById("led-bottom"));
+criarLeds(document.getElementById("led-left"));
+criarLeds(document.getElementById("led-right"));
+
