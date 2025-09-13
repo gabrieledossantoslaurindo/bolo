@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bolos de Pote — Luxo & Sabor</title>
+  <!-- Fonts (opcional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="brand">
+        <div class="logo">BP</div>
+        <div class="brand-text">
+          <h1>Bolos de Pote — Luxo & Sabor</h1>
+          <p class="lead">Sabores finos • Apresentação sofisticada</p>
+        </div>
+      </div>
+
+      <!-- Luzes decorativas (pisca-pisca) -->
+      <div class="lights" aria-hidden="true">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Área de produtos -->
+      <section class="shop card">
+        <div class="shop-header">
+          <h2>Nossos Bolos de Pote</h2>
+          <div class="prices-note">Preços: R$12 • R$15 • R$18</div>
+        </div>
+
+        <div class="products">
+          <!-- Produto: Chocolate -->
+          <article class="product" data-name="Chocolate">
+            <div class="thumb">
+              <img src="images/pote_chocolate.jpg" alt="Bolo de pote sabor Chocolate">
+            </div>
+            <div class="info">
+              <h3>Chocolate</h3>
+              <p class="desc">Camadas de chocolate e creme — acabamento sofisticado.</p>
+              <div class="price">A partir de R$12,00</div>
+
+              <div class="controls">
+                <label>
+                  Tamanho:
+                  <select class="size">
+                    <option value="12">P - R$12</option>
+                    <option value="15">M - R$15</option>
+                    <option value="18">G - R$18</option>
+                  </select>
+                </label>
+
+                <label>
+                  Quantidade:
+                  <select class="qty">
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                  </select>
+                </label>
+
+                <button class="btn primary add">Adicionar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Produto: Ouro Branco -->
+          <article class="product" data-name="Ouro Branco">
+            <div class="thumb">
+              <img src="images/pote_ouro_branco.jpg" alt="Bolo de pote sabor Ouro Branco">
+            </div>
+            <div class="info">
+              <h3>Ouro Branco</h3>
+              <p class="desc">Creme branco com toque crocante — estilo refinado.</p>
+              <div class="price">A partir de R$12,00</div>
+
+              <div class="controls">
+                <label>
+                  Tamanho:
+                  <select class="size">
+                    <option value="12">P - R$12</option>
+                    <option value="15">M - R$15</option>
+                    <option value="18">G - R$18</option>
+                  </select>
+                </label>
+
+                <label>
+                  Quantidade:
+                  <select class="qty">
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                  </select>
+                </label>
+
+                <button class="btn primary add">Adicionar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Produto: Morango -->
+          <article class="product" data-name="Morango">
+            <div class="thumb">
+              <img src="images/pote_morango.jpg" alt="Bolo de pote sabor Morango">
+            </div>
+            <div class="info">
+              <h3>Morango</h3>
+              <p class="desc">Sabor leve com frutas frescas e acabamento delicado.</p>
+              <div class="price">A partir de R$12,00</div>
+
+              <div class="controls">
+                <label>
+                  Tamanho:
+                  <select class="size">
+                    <option value="12">P - R$12</option>
+                    <option value="15">M - R$15</option>
+                    <option value="18">G - R$18</option>
+                  </select>
+                </label>
+
+                <label>
+                  Quantidade:
+                  <select class="qty">
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                  </select>
+                </label>
+
+                <button class="btn primary add">Adicionar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Checkout / resumo -->
+      <aside class="checkout card">
+        <h2>Seu Pedido</h2>
+        <div id="summary" class="summary">Nenhum item no carrinho</div>
+
+        <div class="field">
+          <label for="customer-name">Nome</RAISSA>
+          <input id="customer-name" type="text" placeholder="Seu nome">
+        </div>
+
+        <div class="field">
+          <label for="customer-phone">Telefone (WhatsApp)</RAISSA>
+          <input id="customer-phone" type="tel" placeholder="(00) 9 9999-9999">
+        </div>
+
+        <div class="field">
+          <label>Forma de pagamento</RAISSA>
+          <div class="payments">
+            <div class="payment selected" data-method="pix">PIX</div>
+            <div class="payment" data-method="debito">Débito</div>
+            <div class="payment" data-method="credito">Crédito</div>
+          </div>
+        </div>
+
+        <div class="field" id="pix-row">
+          <label for="pix-key">Chave PIX</RAISSA>
+          <input id="pix-key" type="text" placeholder="CPF ou e-mail / chave PIX">
+        </div>
+
+        <button id="place-order" class="order-btn">Finalizar Pedido</button>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="owners">
+        <figure class="owner">
+          <img src="1.jpg" alt="Dono 1">
+          <img src="4dfe1bfd11292121c39cdcfe4afbba621.jpg" alt="Dono 1">
+          <img src="4dfe1bfd11292121c39cdcfe4afbba62.jpg" alt="Dono 1">
+          <figcaption>Maria</figcaption>
+        </figure>
+
+        <figure class="owner">
+          <img src="images/owner2.jpg" alt="Dono 2">
+          <figcaption>MATEUS</figcaption>
+        </figure>
+      </div>
+
+      <div class="copyright">
+        © <span id="year"></span> Bolos de Pote — Luxo & Sabor
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal (resumo/pagamento) -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Resumo do pedido">
+      <h3>Resumo do Pedido</h3>
+      <div id="modal-body" class="modal-body">—</div>
+      <div id="qr" class="qr">QR PIX (substituir por QR real)</div>
+      <div class="modal-actions">
+        <button id="close-modal" class="btn">Fechar</button>
+        <button id="confirm-order" class="btn primary">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Placeholders for JS (adicione seu script.js no final) -->
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>
+<link rel="stylesheet" href="bolo.css">
+<link rel="stylesheet" href="bolo.script">
+
+
+
+
+
+
+<div class="lights">
+  <div class="light"></div>
+  <div class="light"></div>
+  <div class="light"></div>
+  <div class="light"></div>
+  <div class="light"></div>
+  <div class="light"></div>
+</div>

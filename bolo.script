@@ -1,0 +1,141 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const summary = document.getElementById("summary");
+  const placeOrderBtn = document.getElementById("place-order");
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("modal-body");
+  const closeModal = document.getElementById("close-modal");
+  const confirmOrder = document.getElementById("confirm-order");
+  const year = document.getElementById("year");
+  const payments = document.querySelectorAll(".payment");
+  const pixRow = document.getElementById("pix-row");
+
+  let cart = [];
+  let selectedPayment = "pix";
+
+  // Ano automático no rodapé
+  year.textContent = new Date().getFullYear();
+
+  // Função para atualizar carrinho
+  function updateSummary() {
+    if (cart.length === 0) {
+      summary.textContent = "Nenhum item no carrinho";
+      return;
+    }
+
+    let total = 0;
+    let lines = cart.map(item => {
+      total += item.price * item.qty;
+      return `${item.qty}x ${item.size} - ${item.name} (R$${item.price},00)`;
+    });
+
+    summary.innerHTML = `
+      ${lines.join("<br>")}
+      <br><br><strong>Total: R$${total},00</strong>
+    `;
+  }
+
+  // Adicionar produto
+  document.querySelectorAll(".add").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const product = e.target.closest(".product");
+      const name = product.dataset.name;
+      const size = product.querySelector(".size").value;
+      const qty = parseInt(product.querySelector(".qty").value);
+      const price = parseInt(size);
+
+      cart.push({ name, size, qty, price });
+      updateSummary();
+    });
+  });
+
+  // Selecionar forma de pagamento
+  payments.forEach(p => {
+    p.addEventListener("click", () => {
+      payments.forEach(el => el.classList.remove("selected"));
+      p.classList.add("selected");
+      selectedPayment = p.dataset.method;
+
+      // Mostra ou esconde chave PIX
+      pixRow.style.display = selectedPayment === "pix" ? "block" : "none";
+    });
+  });
+
+  // Finalizar pedido (abre modal)
+  placeOrderBtn.addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("Adicione ao menos 1 produto antes de finalizar.");
+      return;
+    }
+
+    const name = document.getElementById("customer-name").value.trim();
+    const phone = document.getElementById("customer-phone").value.trim();
+
+    if (!name || !phone) {
+      alert("Preencha nome e telefone para continuar.");
+      return;
+    }
+
+    let total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+    let resumo = cart.map(item => `${item.qty}x ${item.size} - ${item.name}`).join("<br>");
+
+    modalBody.innerHTML = `
+      <strong>Cliente:</strong> ${name}<br>
+      <strong>Telefone:</strong> ${phone}<br>
+      <strong>Pagamento:</strong> ${selectedPayment.toUpperCase()}<br><br>
+      <strong>Itens:</strong><br>${resumo}<br><br>
+      <strong>Total:</strong> R$${total},00
+    `;
+
+    modal.classList.add("open");
+  });
+
+  // Fechar modal
+  closeModal.addEventListener("click", () => modal.classList.remove("open"));
+
+  // Confirmar pedido
+  confirmOrder.addEventListener("click", () => {
+    alert("Pedido confirmado! 🎉 Obrigado pela compra.");
+    modal.classList.remove("open");
+    cart = [];
+    updateSummary();
+    document.getElementById("customer-name").value = "";
+    document.getElementById("customer-phone").value = "";
+  });
+
+  // Luzes piscando com cores diferentes (extra)
+  const lights = document.querySelectorAll(".light");
+  setInterval(() => {
+    lights.forEach(light => {
+      const colors = ["#d4af37", "#f1c40f", "#f39c12", "#e67e22"];
+      const random = colors[Math.floor(Math.random() * colors.length)];
+      light.style.background = random;
+      light.style.boxShadow = `0 0 8px ${random}`;
+    });
+  }, 800);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Pisca-pisca dinâmico (troca cor aleatória)
+const lights = document.querySelectorAll(".light");
+const colors = ["red", "yellow", "green", "blue", "pink", "orange", "cyan", "purple"];
+
+setInterval(() => {
+  lights.forEach(light => {
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    light.style.background = color;
+    light.style.boxShadow = `0 0 8px ${color}`;
+  });
+}, 1500);
